@@ -36,6 +36,8 @@ export const RULES = {
 /** How many differences a level hides, and how far apart two of them may sit. */
 export const PUZZLE = {
   minSpread: 128,
+  /** The closest two spots may ever sit: two 22px marker rings never touch. */
+  minSpacing: 60,
   markerRadius: 27,
 };
 

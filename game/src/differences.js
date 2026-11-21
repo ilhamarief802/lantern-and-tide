@@ -66,7 +66,7 @@ export function chooseDifferences(scene, random, count) {
 
   const chosen = [];
   let spread = PUZZLE.minSpread;
-  while (chosen.length < count && spread > 40) {
+  while (chosen.length < count && spread > PUZZLE.minSpacing) {
     for (const node of candidates) {
       if (chosen.length >= count) break;
       if (chosen.some((picked) => picked.nodeId === node.id)) continue;
@@ -90,7 +90,7 @@ export function chooseDifferences(scene, random, count) {
         break;
       }
     }
-    spread -= 14;
+    spread -= 12;
   }
   return chosen;
 }
