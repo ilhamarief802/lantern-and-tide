@@ -1,0 +1,13 @@
+{
+  "name": "lantern-and-tide",
+  "private": true,
+  "type": "module",
+  "description": "Lantern & Tide: a three level spot-the-difference game drawn entirely on a canvas",
+  "scripts": {
+    "start": "node serve.ts",
+    "check": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}

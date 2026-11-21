@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lantern &amp; Tide — Spot the Difference</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #070910; }
+  body { display: grid; place-items: center; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  #stage { position: relative; width: 100vw; height: 100vh; }
+  #game { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: manipulation; }
+  /* Read aloud by a screen reader, never shown: the status of the round. */
+  #status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  noscript { position: absolute; inset: 0; display: grid; place-items: center; color: #f2f5ff; font-size: 16px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="game" role="img" aria-label="Lantern and Tide, a spot the difference game: two pictures of the same scene, side by side, with the details that changed to find"></canvas>
+  <p id="status" role="status" aria-live="polite"></p>
+  <!-- Filled only for a ?shot=NAME frame: the spots that frame hides, so a checker can verify them. -->
+  <pre id="shot-info" hidden></pre>
+  <noscript>This game needs JavaScript: it draws both pictures itself and has no images to fall back on.</noscript>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
