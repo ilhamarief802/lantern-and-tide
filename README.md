@@ -1,9 +1,10 @@
 # Lantern & Tide — a spot the difference game
 
-[![Node](https://img.shields.io/badge/node-%E2%89%A522.18-3c873a?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
-[![No dependencies](https://img.shields.io/badge/dependencies-none-4c8bf5?style=flat-square)](package.json)
-[![Tests](https://img.shields.io/badge/checks-3_levels_%C3%97_5_seeds_passing-2ea44f?style=flat-square)](test/check_shot.py)
-[![License](https://img.shields.io/badge/license-MIT-8957e5?style=flat-square)](LICENSE)
+[![make.fun · best-spot-the-difference-game-20261121-0451](https://make.fun/badge/best-spot-the-difference-game-20261121-0451.svg)](https://make.fun/bounty/best-spot-the-difference-game-20261121-0451?utm_source=github&utm_medium=readme&utm_campaign=best-spot-the-difference-game-20261121-0451)
+[![rank](https://make.fun/badge/best-spot-the-difference-game-20261121-0451/ilhamarief802/lantern-and-tide/rank.svg)](https://make.fun/bounty/best-spot-the-difference-game-20261121-0451/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=best-spot-the-difference-game-20261121-0451)
+[![reward](https://make.fun/badge/best-spot-the-difference-game-20261121-0451/ilhamarief802/lantern-and-tide/reward.svg)](https://make.fun/bounty/best-spot-the-difference-game-20261121-0451?utm_source=github&utm_medium=readme&utm_campaign=best-spot-the-difference-game-20261121-0451)
+
+An entry in [make.fun's spot-the-difference bounty](https://make.fun/bounty/best-spot-the-difference-game-20261121-0451).
 
 Two pictures of the same scene, side by side. Click the details that changed. Three scenes, six to nine
 differences each, a clock that punishes a guess, and a hint that costs ten seconds.
