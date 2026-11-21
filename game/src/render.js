@@ -41,7 +41,7 @@ function drawLabel(ctx, side, rect, focused) {
   );
 }
 
-function drawFoundMarker(ctx, spot, age, pulse) {
+function drawFoundMarker(ctx, spot, age, pulse, order) {
   const grow = Math.max(0, Math.min(1, age * 5));
   const radius = 22 * (0.75 + 0.25 * grow);
   ctx.save();
@@ -71,6 +71,22 @@ function drawFoundMarker(ctx, spot, age, pulse) {
   ctx.lineWidth = 3;
   ctx.lineCap = 'round';
   ctx.stroke();
+  // The order the find came in, on a small chip off the ring: a run records itself on the picture.
+  if (order > 0) {
+    const chip = { x: spot.x + radius * 0.78, y: spot.y - radius * 0.78 };
+    ctx.beginPath();
+    ctx.arc(chip.x, chip.y, 9, 0, Math.PI * 2);
+    ctx.fillStyle = PALETTE.good;
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(6, 20, 14, 0.55)';
+    ctx.lineWidth = 1.6;
+    ctx.stroke();
+    ctx.fillStyle = '#08210f';
+    ctx.font = `800 11px ${FONT_NUM}`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(String(order), chip.x, chip.y + 0.5);
+  }
   ctx.restore();
 }
 
@@ -144,7 +160,7 @@ export function drawPanel(ctx, side, view, time) {
     const difference = differences[index];
     if (!difference) continue;
     const spot = { x: rect.x + difference.spot.x, y: rect.y + difference.spot.y };
-    drawFoundMarker(ctx, spot, Math.min(1, (time - difference.foundAt) * 2), pulse);
+    drawFoundMarker(ctx, spot, Math.min(1, (time - difference.foundAt) * 2), pulse, found.indexOf(index) + 1);
   }
   for (const miss of misses) drawMissMarker(ctx, miss.position, time);
   if (hint) {

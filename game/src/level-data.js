@@ -12,6 +12,7 @@ export const LEVELS = [
     build: buildBazaar,
     count: 6,
     seconds: 150,
+    tier: 'EASY',
   },
   {
     id: 'tidepool',
@@ -20,6 +21,7 @@ export const LEVELS = [
     build: buildTidepool,
     count: 8,
     seconds: 165,
+    tier: 'MEDIUM',
   },
   {
     id: 'observatory',
@@ -28,5 +30,6 @@ export const LEVELS = [
     build: buildObservatory,
     count: 9,
     seconds: 180,
+    tier: 'HARD',
   },
 ];

@@ -20,6 +20,11 @@ function drawClock(ctx, state) {
   const y = 50;
   const ratio = Math.max(0, Math.min(1, state.timeLeft / RULES.startSeconds));
   const colour = ratio < 0.2 ? PALETTE.bad : ratio < 0.45 ? PALETTE.accent : PALETTE.sea;
+  // Under a third of the clock the ring starts to breathe: the pressure is visible, not just numeric.
+  if (ratio < 0.34) {
+    const beat = 0.5 + Math.sin(state.levelElapsed * 6) * 0.5;
+    glow(ctx, x, y + 1, 34, `rgba(229, 83, 75, ${0.10 + beat * 0.16})`);
+  }
   ctx.save();
   ctx.beginPath();
   ctx.arc(x, y + 1, 21, 0, Math.PI * 2);
@@ -79,7 +84,7 @@ function drawBrand(ctx, state) {
     align: 'left',
     track: 1.2,
   });
-  label(ctx, `LANTERN & TIDE  ·  LEVEL ${state.levelIndex + 1} OF ${state.levelCount}  ·  ${state.level.name.toUpperCase()}`, 74, 68, {
+  label(ctx, `LEVEL ${state.levelIndex + 1} OF ${state.levelCount}  ·  ${state.level.name.toUpperCase()}  ·  ${state.level.tier}  ·  ${state.level.count} DIFFERENCES`, 74, 68, {
     size: 11.5,
     weight: 600,
     colour: fade(PALETTE.accent, 0.85),
